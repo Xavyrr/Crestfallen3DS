@@ -2,9 +2,9 @@ version = 'V0.00'-- CRESTFALLEN - BY XAVYRR
 gameStates = {
 	start = {load, draw, update},
 	menu = {load, draw, update},
-	core = {load, draw, update},
-	intro = {load, draw, update},
-	game = {load, draw, update},
+	--core = {load, draw, update},
+	--intro = {load, draw, update},
+	--game = {load, draw, update},
 }
 function changeState()
 	love.audio.stop()
@@ -12,9 +12,9 @@ function changeState()
 end
 gameState = 'start'
 require('start')
-require('menu')
-require('game')
-require('intro')
+--require('menu')
+--require('game')
+--require('intro')
 fnt_main = love.graphics.newFont('data/fnt_main_mono.otf', 16)
 --fnt_main_mono = love.graphics.newFont('data/fnt_main_mono.otf', 16)
 fnt_small = love.graphics.newFont('data/fnt_small.ttf', 8)
@@ -47,8 +47,8 @@ function love.draw()
 end
 
 function love.update(dt)
-	if dt >= 1 then gt = 0
-	else gt = dt end-- gt can only increase WHILE the game is running and NOT in a paused state, unlike dt.
+	if dt >= 1 then gt = 0 --check if it's been more than a second since the last update.
+	else gt = dt end-- gt can only increase WHILE the game is running and NOT in a suspended state, unlike dt.
 	gameStates[gameState].update(gt)
 	inputTimer = inputTimer + gt
 end
