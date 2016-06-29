@@ -5,14 +5,10 @@ function gameStates.menu.load()
   menu.state = false
   menu.timer = 0
   menu.keyDelay = 0
-  menu.img_door = love.graphics.newImage('img/menu/door.png')
-  menu.img_patch = love.graphics.newImage('img/menu/patch.png')
-  menu.img_tori0 = love.graphics.newImage('img/menu/tori0.png')
-  menu.img_tori1 = love.graphics.newImage('img/menu/tori1.png')
   menu.list = { {string, selected}, {string, selected} }
   menu.list[1].string = 'Continue'
   menu.list[1].selected = true
-  menu.list[1].goto = 'dream'
+  menu.list[1].goto = 'game'
   menu.list[2].string = 'Quit'
   menu.list[2].selected = false
   menu.list[2].goto = 'quit'
@@ -43,7 +39,7 @@ function gameStates.menu.load()
   function menu.introTimout(gt)
     allowInput = false
     if menu.fade < 255 then
-      menu.fade = menu.fade + 85 * gt
+      menu.fade = menu.fade + 255 * gt
     end
     if menu.fade > 255 then menu.fade = 255 end
     if menu.fade == 255 then
@@ -80,10 +76,9 @@ function gameStates.menu.draw()
   love.graphics.setDepth(1)
   love.graphics.setColor(255, 255, 255, 150)
   love.graphics.setFont(fnt_small)
-  love.graphics.printf('LOVE ' .. version .. ' BY XAVYRR - UNDERTALE ASSETS (C) TOBY FOX', 0, love.graphics.getHeight()-10, love.graphics.getWidth(), 'center')
+  love.graphics.printf('CRESTFALLEN ' .. version .. ' ' .. build .. ' - (C) XAVIER \'XAVYRR\' SHAVER', 0, love.graphics.getHeight()-10, love.graphics.getWidth(), 'center')
   love.graphics.setDepth(0)
   love.graphics.setColor(0, 0, 0, menu.fade)
-  --black bars on sides of art to prevent 'bleeding off canvas'
   love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
 end
 

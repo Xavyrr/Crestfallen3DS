@@ -2,19 +2,16 @@ version = 'V0.00'-- CRESTFALLEN - BY XAVYRR
 gameStates = {
 	start = {load, draw, update},
 	menu = {load, draw, update},
-	--core = {load, draw, update},
-	--intro = {load, draw, update},
 	--game = {load, draw, update},
 }
 function changeState()
 	love.audio.stop()
 	love.load()
 end
-gameState = 'start'
+gameState = 'menu'
 require('start')
---require('menu')
+require('menu')
 --require('game')
---require('intro')
 fnt_main = love.graphics.newFont('data/fnt_main_mono.otf', 16)
 --fnt_main_mono = love.graphics.newFont('data/fnt_main_mono.otf', 16)
 fnt_small = love.graphics.newFont('data/fnt_small.ttf', 8)
